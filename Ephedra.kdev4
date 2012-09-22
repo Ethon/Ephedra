@@ -1,0 +1,4 @@
+[Project]
+Name=Ephedra
+Manager=KDevCMakeManager
+VersionControl=kdevgit
