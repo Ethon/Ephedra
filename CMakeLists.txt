@@ -1,4 +1,12 @@
-project(ephedra)
+# This file is part of Sythetic.
+#
+# Main makefile which builds all components.
 
-add_executable(ephedra main.cpp)
+# Set up project
+Cmake_Minimum_Required(VERSION 2.8)
+Project(Ephedra CXX C)
+
+Add_Library(Ephedra
+
+)
 
