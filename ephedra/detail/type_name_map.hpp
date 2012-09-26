@@ -29,16 +29,21 @@
 #include <string>
 #include <unordered_map>
 #include <utility>
-
+#include <typeinfo>
+#include <typeindex>
+	
 // Boost:
 #include <boost/throw_exception.hpp>
 #include <boost/exception/info.hpp>
+
+// Ephedra:
+#include <ephedra/script_error.hpp>
 
 namespace ephedra
 {
 	namespace error
 	{
-		struct unknown_type_error : public virtual script_error
+		struct unknown_type_error : virtual script_error
 		{ };
 		
 		typedef boost::error_info<struct tag_unknown_type_info,
@@ -66,7 +71,7 @@ namespace ephedra
 			bool try_get(std::type_info const& type, string_type& out) const
 			{
 				auto iter = m_map.find(type);
-				if(iter == m_map.end()
+				if(iter == m_map.end())
 					return false;
 				
 				out = iter->second;
@@ -86,7 +91,7 @@ namespace ephedra
 				return result;
 			}
 			
-			string_type operator[](std::type_index type) const
+			string_type operator[](std::type_info const& type) const
 			{
 				return get(type);
 			}
