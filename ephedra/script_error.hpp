@@ -30,6 +30,7 @@
 
 // Boost:
 #include <boost/exception/exception.hpp>
+#include <boost/exception/info.hpp>
 
 namespace ephedra
 {
@@ -37,6 +38,9 @@ namespace ephedra
 	{
 		struct script_error : virtual std::exception, virtual boost::exception
 		{ };
+		
+		typedef boost::error_info<struct tag_script_error_code, int>
+			script_error_code;
 	}
 }
 
