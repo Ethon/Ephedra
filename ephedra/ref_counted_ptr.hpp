@@ -28,6 +28,7 @@
 // C++ Standard Library:
 #include <type_traits>
 #include <utility>
+#include <cassert>
 
 namespace ephedra
 {
@@ -106,11 +107,13 @@ namespace ephedra
 		
 		lvalue_reference operator*() const
 		{
+			assert(m_ptr);
 			return *m_ptr;
 		}
 		
 		pointer operator->() const
 		{
+			assert(m_ptr);
 			return m_ptr;
 		}
 		
