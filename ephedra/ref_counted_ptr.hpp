@@ -77,6 +77,7 @@ namespace ephedra
 		ref_counted_ptr& operator=(ref_counted_ptr<element_type> other)
 		{
 			swap(other);
+			return *this;
 		}
 
 		void reset(pointer ptr = pointer(), bool add_ref = false)
